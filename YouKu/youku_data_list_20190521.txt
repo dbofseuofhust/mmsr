@@ -1,0 +1,31 @@
+﻿y4m 格式介绍：https://wiki.multimedia.cx/index.php/YUV4MPEG2
+y4m 与 yuv（yuv420 8bit planar） 互转命令：
+    y4mtoyuv: ffmpeg -i xx.y4m -vsync 0 xx.yuv  -y
+    yuvtoy4m: ffmpeg -s 1920x1080 -i xx.yuv -vsync 0 xx.y4m -y
+y4m 与 png 互转命令：
+   y4mtobmp: ffmpeg -i xx.y4m -vsync 0 xx%3d.bmp -y
+   bmptoy4m: ffmpeg -i xx%3d.bmp  -pix_fmt yuv420p  -vsync 0 xx.y4m -y
+y4m 每25帧抽样命令：
+   ffmpeg -i xxx.y4m -vf select='not(mod(n\,25))' -vsync 0  -y xxx_sub25.y4m
+
+## 初赛训练数据下载链接
+round1_train_input:
+http://tianchi-media.oss-cn-beijing.aliyuncs.com/231711_youku/round1/train/input/youku_00000_00049_l.zip
+http://tianchi-media.oss-cn-beijing.aliyuncs.com/231711_youku/round1/train/input/youku_00050_00099_l.zip
+http://tianchi-media.oss-cn-beijing.aliyuncs.com/231711_youku/round1/train/input/youku_00100_00149_l.zip
+
+round1_train_label:
+http://tianchi-media.oss-cn-beijing.aliyuncs.com/231711_youku/round1/train/label/youku_00000_00049_h_GT.zip
+http://tianchi-media.oss-cn-beijing.aliyuncs.com/231711_youku/round1/train/label/youku_00050_00099_h_GT.zip
+http://tianchi-media.oss-cn-beijing.aliyuncs.com/231711_youku/round1/train/label/youku_00100_00149_h_GT.zip
+
+## 初赛验证数据下载链接
+round1_val_input:
+http://tianchi-media.oss-cn-beijing.aliyuncs.com/231711_youku/round1/train/input/youku_00150_00199_l.zip
+
+round1_val_label:
+http://tianchi-media.oss-cn-beijing.aliyuncs.com/231711_youku/round1/train/label/youku_00150_00199_h_GT.zip
+
+## 初赛测试数据下载链接
+round1_test_input:
+http://tianchi-media.oss-cn-beijing.aliyuncs.com/231711_youku/round1/test/input/youku_00200_00249_l.zip
